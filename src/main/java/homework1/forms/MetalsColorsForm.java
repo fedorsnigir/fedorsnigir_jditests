@@ -1,75 +1,53 @@
 package homework1.forms;
 
 import com.epam.jdi.light.elements.complex.Checklist;
-import com.epam.jdi.light.elements.complex.Combobox;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.composite.Form;
-import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.ui.html.elements.common.Button;
+import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 import homework1.entities.MetalsColorsParameters;
-import homework1.enums.metalsColors.ColorsEnum;
-import homework1.enums.metalsColors.DropdownsEnum;
-import homework1.enums.metalsColors.MetalsEnum;
 import homework1.enums.metalsColors.VegetablesEnum;
-import homework1.sections.SummarySection;
+
+import java.util.List;
 
 public class MetalsColorsForm extends Form<MetalsColorsParameters> {
 
-    @FindBy(id = "summary-block")
-    public SummarySection summary;
+    @Css("#summary-block p") public RadioButtons summary;
+    @Css("#summary-block input") public RadioButtons summaryValues;
+    @Css("#elements-checklist p") public Checklist elements;
+    @Css("#elements-checklist input") public Checklist elementsValues;
+    @JDropdown(root = "#colors", value = "span", list = "li", expand = ".caret") public Dropdown colors;
+    @JDropdown(root = "#metals", value = "span", list = "li", expand = ".caret") public Dropdown metals;
+    @JDropdown(root = "#vegetables", value = "span", list = "li", expand = ".caret") public Dropdown vegetables;
+    @Css("#submit-button") public Button submitButton;
 
-    @FindBy(css = "#elements-checklist input")
-    public static Checklist elementsInput;
+    public void fillForm(MetalsColorsParameters parameters) {
 
-    @FindBy(css = "#elements-checklist p")
-    public static Checklist elementsP;
+        List<String> summaryValuesList = summaryValues.values();
+        for (int i = 0; i < parameters.summary.size(); i++) {
+            int index = summaryValuesList.indexOf(parameters.summary.get(i).toString());
+            summary.select(index + 1);
+        }
 
-    @FindBy(css = "#elements-checklist label")
-    public static Checklist elementsLabel;
+        List<String> elementsValuesList = elementsValues.values();
+        for (int i = 0; i < parameters.elements.size(); i++) {
+            int index = elementsValuesList.indexOf(parameters.elements.get(i).toString());
+            elements.select(index + 1);
+        }
 
-    @FindBy(css = ".colors")
-    public Dropdown colors;
+        colors.select(parameters.color);
 
-    @FindBy(css = "li")
-    public Combobox metals;
+        metals.select(parameters.metal);
 
-    @FindBy(css = ".salad")
-    public Dropdown vegetables;
-
-    @FindBy(id = "submit-button")
-    public Button submitButton;
+        vegetables.select(VegetablesEnum.VEGETABLES);
+        for(VegetablesEnum veg: parameters.vegetables) {
+            vegetables.select(veg);
+        }
+    }
 
     public void submit() {
         submitButton.click();
     }
-
-    public void fill(MetalsColorsParameters parameters) {
-//        summary.select(parameters.summary);
-        System.out.println("HERE! elementsInput ---------- " + elementsInput.values());
-        System.out.println("HERE! elementsP -------------- " + elementsP.values());
-        System.out.println("HERE! elementsLabel ---------- " + elementsLabel.values());
-
-        elementsInput.select("Wind");
-//        elementsInput.check("Wind");
-
-
-//        elements.select(parameters.elements.toArray(new ElementsEnum[0]).toString());
-//        colors.select(parameters.color);
-//        metals.select(parameters.metals);
-//        vegetables.select(parameters.vegetables.get(0));
-    }
-//
-//    public <T extends Enum> void selectDropdown(DropdownsEnum dropdown, T option) {
-//        switch (dropdown) {
-//            case COLORS:
-//                colors.select((ColorsEnum) option);
-//                break;
-//            case METALS:
-//                metals.select((MetalsEnum) option);
-//                break;
-//            case VEGETABLES:
-//                vegetables.select((VegetablesEnum) option);
-//                break;
-//        }
-//    }
 }

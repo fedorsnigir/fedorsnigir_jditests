@@ -15,4 +15,13 @@ public class User {
     private final String login;
     private final String password;
     private final String userName;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", userName='" + userName + '\'' +
+                '}';
+    }
 }

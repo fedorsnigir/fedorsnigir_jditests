@@ -8,10 +8,9 @@ import org.testng.annotations.Test;
 
 import static homework1.JDISite.homePage;
 import static homework1.JDISite.metalsColorsPage;
-import static homework1.entities.MetalsColorsParameters.TEST_FORM;
+import static homework1.entities.MetalsColorsParameters.TEST_PARAM;
 import static homework1.entities.User.PITER;
 import static homework1.enums.PagesEnum.METALS_COLORS;
-import static org.testng.Assert.assertEquals;
 
 public class JDITests{
 
@@ -22,25 +21,29 @@ public class JDITests{
 
     @Test
     public void testJDISite() throws InterruptedException {
+
         homePage.open();
 
         //1 Login on JDI site as User
         homePage.login(PITER);
-        String actualUserName  = homePage.getUserName();
-        assertEquals(actualUserName, PITER.getUserName());
 
         //2 Open Metals & Colors page by Header menu
         homePage.headerMenu.select(METALS_COLORS);
-        metalsColorsPage.checkOpened();
 
         //3 Fill form Metals & Colors by test data
-        metalsColorsPage.fill(TEST_FORM);
+        metalsColorsPage.fill(TEST_PARAM);
 
         //4 Submit form Metals & Colors
         metalsColorsPage.submit();
 
         //5 Result sections should contains data below:
-        //metalsColorsPage.checkResults(TEST_FORM);
+        metalsColorsPage.checkResults(TEST_PARAM);
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @AfterTest(alwaysRun = true)

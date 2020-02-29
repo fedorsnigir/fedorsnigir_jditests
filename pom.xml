@@ -30,7 +30,6 @@
     </build>
 
     <dependencies>
-
         <dependency>
             <groupId>com.epam.jdi</groupId>
             <artifactId>jdi-light-html</artifactId>
@@ -41,7 +40,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>RELEASE</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -55,7 +53,5 @@
             <artifactId>guava</artifactId>
             <version>RELEASE</version>
         </dependency>
-
     </dependencies>
-
 </project>

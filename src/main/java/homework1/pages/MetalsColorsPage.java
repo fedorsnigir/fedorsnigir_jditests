@@ -7,7 +7,7 @@ import homework1.sections.ResultSection;
 
 public class MetalsColorsPage extends WebPage {
 
-    public static MetalsColorsForm metalsColorsForm;
+    public MetalsColorsForm metalsColorsForm;
     public ResultSection resultSection;
 
     public void submit() {
@@ -15,6 +15,10 @@ public class MetalsColorsPage extends WebPage {
     }
 
     public void fill(MetalsColorsParameters parameters) {
-        metalsColorsForm.fill(parameters);
+        metalsColorsForm.fillForm(parameters);
+    }
+
+    public void checkResults(MetalsColorsParameters parameters) {
+        resultSection.check(parameters);
     }
 }

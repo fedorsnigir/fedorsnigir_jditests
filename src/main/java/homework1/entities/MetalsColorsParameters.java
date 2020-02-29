@@ -1,10 +1,14 @@
 package homework1.entities;
 
+import homework1.enums.metalsColors.ColorsEnum;
 import homework1.enums.metalsColors.ElementsEnum;
+import homework1.enums.metalsColors.MetalsEnum;
+import homework1.enums.metalsColors.VegetablesEnum;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static homework1.enums.metalsColors.ColorsEnum.RED;
 import static homework1.enums.metalsColors.ElementsEnum.WATER;
@@ -17,7 +21,7 @@ import static homework1.enums.metalsColors.VegetablesEnum.TOMATO;
 @NoArgsConstructor
 public class MetalsColorsParameters {
 
-    public static final MetalsColorsParameters TEST_FORM = new MetalsColorsParameters(
+    public static final MetalsColorsParameters TEST_PARAM = new MetalsColorsParameters(
                     new ArrayList<Integer>() {{
                         add(3);
                         add(8);
@@ -26,17 +30,27 @@ public class MetalsColorsParameters {
                         add(WATER);
                         add(WIND);
                     }},
-                    RED.value,
-                    SELEN.value,
-                    new ArrayList<String>() {{
-                        add(CUCUMBER.value);
-                        add(TOMATO.value);
-                    }}
-            );
+                    RED,
+                    SELEN,
+                    new ArrayList<VegetablesEnum>() {{
+                        add(CUCUMBER);
+                        add(TOMATO);
+                    }});
 
-    public ArrayList<Integer> summary;
-    public ArrayList<ElementsEnum> elements;
-    public String color;
-    public String metals;
-    public ArrayList<String> vegetables;
+    public List<Integer> summary;
+    public List<ElementsEnum> elements;
+    public ColorsEnum color;
+    public MetalsEnum metal;
+    public List<VegetablesEnum> vegetables;
+
+    @Override
+    public String toString() {
+        return "MetalsColorsParameters{" +
+                "summary=" + summary +
+                ", elements=" + elements +
+                ", color=" + color +
+                ", metal=" + metal +
+                ", vegetables=" + vegetables +
+                '}';
+    }
 }

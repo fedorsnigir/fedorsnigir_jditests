@@ -1,7 +1,6 @@
 package homework1.enums;
 
 import lombok.AllArgsConstructor;
-import lombok.ToString;
 
 @AllArgsConstructor
 public enum PagesEnum {
@@ -12,4 +11,8 @@ public enum PagesEnum {
     METALS_COLORS("Metals & Colors");
 
     public String value;
+
+    public String toString() {
+        return value;
+    }
 }
