@@ -42,15 +42,4 @@ public class MetalsColorsParameters {
     public ColorsEnum color;
     public MetalsEnum metal;
     public List<VegetablesEnum> vegetables;
-
-    @Override
-    public String toString() {
-        return "MetalsColorsParameters{" +
-                "summary=" + summary +
-                ", elements=" + elements +
-                ", color=" + color +
-                ", metal=" + metal +
-                ", vegetables=" + vegetables +
-                '}';
-    }
 }

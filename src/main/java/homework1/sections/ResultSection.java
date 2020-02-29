@@ -16,28 +16,40 @@ public class ResultSection extends Section {
     @Css(".results li") public WebList resultsSection;
 
     public void check(MetalsColorsParameters parameters) {
-
         List<String> resultsList = resultsSection.getValuesFast();
 
-        int sum = 0;
-        for (int i: parameters.summary) { sum += i; }
-        assertTrue(resultsList.contains("Summary: " + sum), "Summary not valid");
+        if (parameters.summary != null) {
+            int sum = 0;
+            for (int i: parameters.summary) {
+                sum += i;
+            }
+            assertTrue(resultsList.contains("Summary: " + sum), "Summary not valid");
+        }
 
-        for (String i: resultsList) {
-            if (i.contains("Elements")) {
-                for (ElementsEnum k: parameters.elements) {
-                    assertTrue(i.contains(k.value), "Elements not valid: " + k);
+        if (parameters.elements != null) {
+            for (String i : resultsList) {
+                if (i.contains("Elements")) {
+                    for (ElementsEnum k : parameters.elements) {
+                        assertTrue(i.contains(k.value), "Elements not valid: " + k);
+                    }
                 }
             }
         }
 
-        assertTrue(resultsList.contains("Color: " + parameters.color), "Color not valid");
-        assertTrue(resultsList.contains("Metal: " + parameters.metal), "Metal not valid");
+        if (parameters.color != null) {
+            assertTrue(resultsList.contains("Color: " + parameters.color), "Color not valid");
+        }
 
-        for (String i: resultsList) {
-            if (i.contains("Vegetables")) {
-                for (VegetablesEnum k: parameters.vegetables) {
-                    assertTrue(i.contains(k.value), "Vegetables not valid: " + k);
+        if (parameters.metal != null) {
+            assertTrue(resultsList.contains("Metal: " + parameters.metal), "Metal not valid");
+        }
+
+        if (parameters.vegetables != null) {
+            for (String i : resultsList) {
+                if (i.contains("Vegetables")) {
+                    for (VegetablesEnum k : parameters.vegetables) {
+                        assertTrue(i.contains(k.value), "Vegetables not valid: " + k);
+                    }
                 }
             }
         }
