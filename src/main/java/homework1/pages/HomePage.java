@@ -12,9 +12,14 @@ public class HomePage extends WebPage {
 
     public LoginForm loginForm;
 
-    @XPath("//*[contains(@class,'nav')]//a") public Menu headerMenu;
-    @Css(".profile-photo") public Button profilePhoto;
-    @Css("#user-name") public Button username;
+    @XPath("//*[contains(@class,'nav')]//a")
+    public Menu headerMenu;
+
+    @Css(".profile-photo")
+    public Button profilePhoto;
+
+    @Css("#user-name")
+    public Button username;
 
     public void login(User user) {
         profilePhoto.click();

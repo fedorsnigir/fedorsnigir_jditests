@@ -38,12 +38,6 @@ public class JDITests{
 
         //5 Result sections should contains data below:
         metalsColorsPage.checkResults(TEST_PARAM);
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     @AfterTest(alwaysRun = true)

@@ -5,7 +5,6 @@ import homework1.enums.metalsColors.ElementsEnum;
 import homework1.enums.metalsColors.MetalsEnum;
 import homework1.enums.metalsColors.VegetablesEnum;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,6 @@ import static homework1.enums.metalsColors.VegetablesEnum.CUCUMBER;
 import static homework1.enums.metalsColors.VegetablesEnum.TOMATO;
 
 @AllArgsConstructor
-@NoArgsConstructor
 public class MetalsColorsParameters {
 
     public static final MetalsColorsParameters TEST_PARAM = new MetalsColorsParameters(
