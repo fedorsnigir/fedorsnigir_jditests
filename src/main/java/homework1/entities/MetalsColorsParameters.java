@@ -1,9 +1,5 @@
 package homework1.entities;
 
-import homework1.enums.metalsColors.ColorsEnum;
-import homework1.enums.metalsColors.ElementsEnum;
-import homework1.enums.metalsColors.MetalsEnum;
-import homework1.enums.metalsColors.VegetablesEnum;
 import lombok.AllArgsConstructor;
 
 import java.util.ArrayList;
@@ -20,24 +16,24 @@ import static homework1.enums.metalsColors.VegetablesEnum.TOMATO;
 public class MetalsColorsParameters {
 
     public static final MetalsColorsParameters TEST_PARAM = new MetalsColorsParameters(
-                    new ArrayList<Integer>() {{
-                        add(3);
-                        add(8);
-                    }},
-                    new ArrayList<ElementsEnum>() {{
-                        add(WATER);
-                        add(WIND);
-                    }},
-                    RED,
-                    SELEN,
-                    new ArrayList<VegetablesEnum>() {{
-                        add(CUCUMBER);
-                        add(TOMATO);
-                    }});
+            new ArrayList<Integer>() {{
+                add(3);
+                add(8);
+            }},
+            new ArrayList<String>() {{
+                add(WATER.value);
+                add(WIND.value);
+            }},
+            RED.value,
+            SELEN.value,
+            new ArrayList<String>() {{
+                add(CUCUMBER.value);
+                add(TOMATO.value);
+            }});
 
     public List<Integer> summary;
-    public List<ElementsEnum> elements;
-    public ColorsEnum color;
-    public MetalsEnum metal;
-    public List<VegetablesEnum> vegetables;
+    public List<String> elements;
+    public String color;
+    public String metals;
+    public List<String> vegetables;
 }

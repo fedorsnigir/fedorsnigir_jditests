@@ -4,8 +4,6 @@ import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.Section;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
 import homework1.entities.MetalsColorsParameters;
-import homework1.enums.metalsColors.ElementsEnum;
-import homework1.enums.metalsColors.VegetablesEnum;
 
 import java.util.List;
 
@@ -29,8 +27,8 @@ public class ResultSection extends Section {
         if (parameters.elements != null) {
             for (String i : resultsList) {
                 if (i.contains("Elements")) {
-                    for (ElementsEnum k : parameters.elements) {
-                        assertTrue(i.contains(k.value), "Elements not valid: " + k);
+                    for (String k : parameters.elements) {
+                        assertTrue(i.contains(k), "Elements not valid: " + k);
                     }
                 }
             }
@@ -40,15 +38,15 @@ public class ResultSection extends Section {
             assertTrue(resultsList.contains("Color: " + parameters.color), "Color not valid");
         }
 
-        if (parameters.metal != null) {
-            assertTrue(resultsList.contains("Metal: " + parameters.metal), "Metal not valid");
+        if (parameters.metals != null) {
+            assertTrue(resultsList.contains("Metal: " + parameters.metals), "Metal not valid");
         }
 
         if (parameters.vegetables != null) {
             for (String i : resultsList) {
                 if (i.contains("Vegetables")) {
-                    for (VegetablesEnum k : parameters.vegetables) {
-                        assertTrue(i.contains(k.value), "Vegetables not valid: " + k);
+                    for (String k : parameters.vegetables) {
+                        assertTrue(i.contains(k), "Vegetables not valid: " + k);
                     }
                 }
             }

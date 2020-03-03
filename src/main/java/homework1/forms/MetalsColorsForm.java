@@ -33,16 +33,16 @@ public class MetalsColorsForm extends Form<MetalsColorsParameters> {
 
         List<String> elementsValuesList = elementsValues.values();
         for (int i = 0; i < parameters.elements.size(); i++) {
-            int index = elementsValuesList.indexOf(parameters.elements.get(i).toString());
+            int index = elementsValuesList.indexOf(parameters.elements.get(i));
             elements.select(index + 1);
         }
 
         colors.select(parameters.color);
 
-        metals.select(parameters.metal);
+        metals.select(parameters.metals);
 
         vegetables.select(VegetablesEnum.VEGETABLES);
-        for(VegetablesEnum veg: parameters.vegetables) {
+        for(String veg: parameters.vegetables) {
             vegetables.select(veg);
         }
     }
